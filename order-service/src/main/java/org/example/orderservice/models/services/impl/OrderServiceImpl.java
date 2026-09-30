@@ -20,8 +20,6 @@ public class OrderServiceImpl implements OrderService {
         @Override
         @Transactional
         public OrderResponse createOrder(CreateOrderRequest request) {
-                for (var item : request.items()) {
-
-                }
+                throw new UnsupportedOperationException();
         }
 }
