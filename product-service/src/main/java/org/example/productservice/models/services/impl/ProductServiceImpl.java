@@ -18,8 +18,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    @Transactional(readOnly = true)
-    @Cacheable(cacheNames = "products", value = "#id", sync = true)
+    @Cacheable(value = "products", key = "id", sync = true)
     public Product getProductById(Long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
